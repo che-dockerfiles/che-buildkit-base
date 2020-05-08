@@ -15,6 +15,7 @@ ENV HOME="/home/buildkit"
 USER root
 
 RUN mkdir -p ${HOME} && \
+    mkdir -p ${HOME}/.docker && \
     mkdir /projects && \
     # Change permissions to let any arbitrary user
     for f in "${HOME}" "/etc/passwd" "/projects"; do \
@@ -29,6 +30,7 @@ RUN mkdir -p ${HOME} && \
 
 ENV XDG_RUNTIME_DIR /var/tmp/buildkit
 ENV TMPDIR=/var/tmp/buildkit
+ENV DOCKER_CONFIG=${HOME}/.docker
 
 # https://github.com/moby/buildkit/blob/master/docs/rootless.md#troubleshooting
 ENV BUILDKITD_FLAGS="--oci-worker-snapshotter=native --oci-worker-no-process-sandbox"
