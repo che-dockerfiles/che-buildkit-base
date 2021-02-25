@@ -8,7 +8,7 @@
 # Contributors:
 #   Red Hat, Inc. - initial API and implementation
 
-FROM moby/buildkit:v0.7.1-rootless
+FROM moby/buildkit:v0.8.2-rootless
 
 ENV HOME="/home/buildkit"
 
